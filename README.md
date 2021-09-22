@@ -7,3 +7,4 @@
 3. element-ui 中的 el-input 的 value 不支持 js 表达式。
 4. android的webview中，location.replace不能覆盖原来的页面，而是跟push效果一样
 5. webview大部分操作系统都不支持0.5的border，比如ios7及以下，android部分版本也是
+6. IOS 显示 transparent 展示黑色透明, 应该换成rgba(255,255,255,0)
