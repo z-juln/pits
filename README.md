@@ -8,4 +8,4 @@
 4. android的webview中，location.replace不能覆盖原来的页面，而是跟push效果一样
 5. webview大部分操作系统都不支持0.5的border，比如ios7及以下，android部分版本也是
 6. IOS 显示 transparent 展示黑色透明, 应该换成rgba(255,255,255,0)
-7. img的src如果是gif（只会动画一次，不会循环动画），需要src重新赋值，gif才能从零开始动画
+7. img的src如果是gif（只会动画一次，不会循环动画），需要src重新赋值，gif才能从零开始动画。修正：有些gif只会播放一次，有些gif会循环播放，PS上可以控制。
