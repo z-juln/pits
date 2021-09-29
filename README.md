@@ -9,3 +9,4 @@
 5. webview大部分操作系统都不支持0.5的border，比如ios7及以下，android部分版本也是
 6. IOS 显示 transparent 展示黑色透明, 应该换成rgba(255,255,255,0)
 7. img的src如果是gif（只会动画一次，不会循环动画），需要src重新赋值，gif才能从零开始动画。修正：有些gif只会播放一次，有些gif会循环播放，PS上可以控制。
+8. firefox和chrome的css渲染机制很不一样（其它平台也是），比如没脱离文档流就使用z-index，样式布局一复杂就容易出现问题，而且很难排错，所以写css一定要严谨一点
