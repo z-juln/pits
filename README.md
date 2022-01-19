@@ -14,4 +14,4 @@
 10. webview全屏时, 不同设备的顶部会呈现不同的样子, 比如手机导航栏透明, 高度也加进去了。解决方法: 见[src/autoPaddingTop.ts](./src/autoPaddingTop.ts)
 11. ios阻尼回弹效果。解决方法：1. 跟产品沟通，不解决。2. 使用 inobounce.js。3. 借鉴<https://github.com/zipeijun/vue-bounce/blob/master/src/vue-bounce.js>
 12. react使用外部库时，如果外部库直接操作dom，可能会导致removeChild的报错并导致页面崩溃空白。相关答案: <https://stackoverflow.com/questions/54880669/react-domexception-failed-to-execute-removechild-on-node-the-node-to-be-re>
-13. localStorage兼容性不行，千万不要用
+13. localStorage在移动端ios上兼容性不行，千万不要用
