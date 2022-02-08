@@ -15,4 +15,4 @@
 11. ios阻尼回弹效果。解决方法：1. 跟产品沟通，不解决。2. 使用 inobounce.js。3. 借鉴<https://github.com/zipeijun/vue-bounce/blob/master/src/vue-bounce.js>
 12. react使用外部库时，如果外部库直接操作dom，可能会导致removeChild的报错并导致页面崩溃空白。相关答案: <https://stackoverflow.com/questions/54880669/react-domexception-failed-to-execute-removechild-on-node-the-node-to-be-re>
 13. localStorage在移动端ios上兼容性不行，千万不要用
-14. 客户端强行缓存，导致与web缓存协议不一致，只能让用户手动去应用管理里面清缓存
+14. webview线上代码发生改变后，都不会立即生效，得等一段时间，属于正常情况
