@@ -16,3 +16,4 @@
 12. react使用外部库时，如果外部库直接操作dom，可能会导致removeChild的报错并导致页面崩溃空白。相关答案: <https://stackoverflow.com/questions/54880669/react-domexception-failed-to-execute-removechild-on-node-the-node-to-be-re>
 13. localStorage在移动端ios上兼容性不行，千万不要用
 14. webview线上代码发生改变后，都不会立即生效，得等一段时间，属于正常情况
+15. next.js端口错误: <https://blog.csdn.net/bidang3275/article/details/118162711>
