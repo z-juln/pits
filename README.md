@@ -17,3 +17,4 @@
 13. localStorage在移动端ios上兼容性不行，千万不要用
 14. webview线上代码发生改变后，都不会立即生效，得等一段时间，属于正常情况
 15. next.js端口错误: <https://blog.csdn.net/bidang3275/article/details/118162711>
+16. next.js不支持导入全局css，只能在/pages/_app.tsx下导入，这导致很多第三方组件都没法直接使用，比如antd-mobile，解决方法：<https://blog.csdn.net/qq_38636629/article/details/108850872>
