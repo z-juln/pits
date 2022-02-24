@@ -19,3 +19,4 @@
 15. next.js端口错误: <https://blog.csdn.net/bidang3275/article/details/118162711>
 16. next.js不支持导入全局css，只能在/pages/_app.tsx下导入，这导致很多第三方组件都没法直接使用，比如antd-mobile，解决方法：<https://blog.csdn.net/qq_38636629/article/details/108850872>
 17. 滚动兼容问题特别严重，scroll的smooth模式有兼容问题，scroll-behavior也有兼容问题。解决方法：<http://ask.sov5.cn/q/yXoKGK3ZhQ>(尚未使用过)
+18. table样式很难改，且各大浏览器效果差别很大，正常开发一定不要使用table，宁愿都是div
