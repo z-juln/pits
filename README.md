@@ -21,4 +21,4 @@
 17. 滚动兼容问题特别严重，scroll的smooth模式有兼容问题，scroll-behavior也有兼容问题。解决方法：<http://ask.sov5.cn/q/yXoKGK3ZhQ>(尚未使用过)
 18. table样式很难改，且各大浏览器效果差别很大，正常开发一定不要使用table，宁愿都是div
 19. 父元素设置transform会将子元素fixed定位改为absolute定位
-20. 如何父元素的position写了relative/fiexd/absolute等，子元素的sticky就会变成相对于父元素定位，所以在嵌套了多层级下，最好不要使用sticky，而是用js+fixed
+20. 上层元素overflow: hidden, 则会阻止底层元素position: sticky的功能
