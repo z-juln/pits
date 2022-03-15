@@ -22,3 +22,4 @@
 18. table样式很难改，且各大浏览器效果差别很大，正常开发一定不要使用table，宁愿都是div
 19. 父元素设置transform会将子元素fixed定位改为absolute定位
 20. 上层元素overflow: hidden, 则会阻止底层元素position: sticky的功能
+21. 部分ios手机: position: sticky在快速滚动后会失效，特别是js的滚动，如scrollIntoView，scrollTo等等，瞬间滚动，使得position: sticky直接失效
