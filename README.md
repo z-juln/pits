@@ -24,3 +24,4 @@
 20. 上层元素overflow: hidden, 则会阻止底层元素position: sticky的功能
 21. 部分ios手机: position: sticky在快速滚动后会失效，特别是js的滚动，如scrollIntoView，scrollTo等等，瞬间滚动，使得position: sticky直接失效
 22. 大部分web在快速滚动下会引起页面重绘，原因不详，怀疑快速滚动都会引起页面重绘
+23. :is和:not很多手机上都用不了，不要用这个
