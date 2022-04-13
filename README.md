@@ -21,7 +21,7 @@
 17. 滚动兼容问题特别严重，scroll的smooth模式有兼容问题，scroll-behavior也有兼容问题。解决方法：<http://ask.sov5.cn/q/yXoKGK3ZhQ>(尚未使用过)
 18. table样式很难改，且各大浏览器效果差别很大，正常开发一定不要使用table，宁愿都是div
 19. 父元素设置relative会将子元素fixed定位改为absolute定位
-20. 上层元素overflow: hidden, 则会阻止底层元素position: sticky的功能
+20. 上层元素overflow: hidden/auto, 则会阻止底层元素position: sticky的功能
 21. 部分ios手机: position: sticky在快速滚动后会失效，特别是js的滚动，如scrollIntoView，scrollTo等等，瞬间滚动，使得position: sticky直接失效
 22. 大部分web在快速滚动下会引起页面重绘，原因不详，怀疑快速滚动都会引起页面重绘
 23. :is很多手机上都用不了，不要用这个；但是:not还好，目前大部分手机没遇到问题
