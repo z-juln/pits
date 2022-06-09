@@ -30,5 +30,5 @@
   > 解决方案：macos新增磁盘分区，设置大小写敏感
 26. 时间戳重复问题：实际上时间戳重复概率是非常低的，但是api的调用速度远远比不上计算机时间戳的更新速度，这就导致获取的时间戳不准确，所以说写后端一定不能用时间戳当id使用，否则重复概率太高了。 所以得用nanoid或uuid
 27. webpack的devServer的proxy设置changeOrigin，在浏览器上的请求头中是看不出来的
-28. 类似于 `-webkit-box-orient: vertical;` 这种的老式样式，autoprefixer 在打包成css的时候会自动去掉它，需要在css顶部加 `/*! autoprefixer: off */`
+28. 类似于 `-webkit-box-orient: vertical;` 这种的老式样式，autoprefixer 在打包成css的时候会自动去掉它，需要在css顶部加 `/*! autoprefixer: off */`, 底部加 `/* autoprefixer: on */`
   
