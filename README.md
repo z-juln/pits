@@ -34,3 +34,5 @@
 29. child_process.exec返回整个子进程处理时产生的buffer，这个buffer默认大小是200K。 当子进程返回的数据超过默认大小时，程序就会产生”Error: maxBuffer exceeded”异常。 调大exec的maxBuffer选项可以解决这个问题，不过当子进程返回的数据太过巨大的时候，这个问题还会出现。 因此当子进程返回的数据超过默认大小时，最好的解决方法是使用spawn方法
 30. resizeObserver无法监听inline类型的元素
 31. 手机safari和oppo浏览器的滚动问题：对fixed定位类型的元素非常不友好。底部工具栏会占据页面高度，100vh就包含了这个工具栏高度，其中safari最tm傻逼，这个工具栏还会时不时的弹出/隐藏，导致整个页面的样式贼几把不可控，解决方式：监听onresize动态获取innerHeiht，这个innerHeight即100vh的大小。Safari还有更傻逼的地方，手搓到顶部还有莫名其妙的滑出白块，解决方式：把html和body的overflow改成hidden。
+32. ios webview禁止双指缩放：<https://juejin.cn/post/6844904159926304775>
+
