@@ -36,5 +36,5 @@
 31. 手机safari和oppo浏览器的滚动问题：对fixed定位类型的元素非常不友好。底部工具栏会占据页面高度，100vh就包含了这个工具栏高度，其中safari最tm傻逼，这个工具栏还会时不时的弹出/隐藏，导致整个页面的样式贼几把不可控，解决方式：监听onresize动态获取innerHeiht，这个innerHeight即100vh的大小。Safari还有更傻逼的地方，手搓到顶部还有莫名其妙的滑出白块，解决方式：把html和body的overflow改成hidden。
 32. ios webview禁止双指缩放：<https://blog.csdn.net/u012551928/article/details/98869057>
 33. git命令执行貌似不准守规范，像node.js的spawn、exec等都无法知道它是否报错，甚至什么时候执行完都不知道，而是在刚开始执行时就结束了，所以如果要写自动化脚本的话，最好用execSync+&&连接符的操作，当然信息还是拿不到的，或者不知道怎么去拿...
-34. chrome对HTTP1.1协议的资源 同一个域名最多允许并行请求为6个， 所以请谨慎使用preload ，合理规划你的并行加载机制。
+34. chrome对HTTP1.1协议的资源 同一个域名最多允许并行请求为6个， 所以请谨慎使用preload ，合理规划你的并行加载机制。老手机webview会用http1.1
 
