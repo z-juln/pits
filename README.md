@@ -39,4 +39,5 @@
 34. chrome对HTTP1.1协议的资源 同一个域名最多允许并行请求为6个， 所以请谨慎使用preload ，合理规划你的并行加载机制。老手机webview会用http1.1
 35. vscode的文件软链状态展示有bug，例如先npm link my-pkg，此时node_modules/my-pkg是软链，然后npm unlink my-pkg，此时应该不是软链，但在vscode中展示状态仍然是软链
 36. eslint: @typescript-eslint/no-unused-vars 规则有时候会误报, 比如ts函数类型定义，函数中的参数会被当作真实变量被判断。解决方案：```rules: { '@typescript-eslint/no-unused-vars': 'off', '@typescript-eslint/no-unused-vars-experimental': 'error' }```。但是lint速度会很明显变慢很多
+37. 在node v18.4.0中, --experimental-loader自定义loader内不能使用fs等文件读取甚至更多api, 实际上是版本问题，切换成其它版本就行, 如v18.12.0
 
