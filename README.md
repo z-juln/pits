@@ -41,4 +41,4 @@
 36. eslint: @typescript-eslint/no-unused-vars 规则有时候会误报, 比如ts函数类型定义，函数中的参数会被当作真实变量被判断。解决方案：```rules: { '@typescript-eslint/no-unused-vars': 'off', '@typescript-eslint/no-unused-vars-experimental': 'error' }```。但是lint速度会很明显变慢很多
 37. 在node v18.4.0中, --experimental-loader自定义loader内不能使用fs等文件读取甚至更多api, 实际上是版本问题，切换成其它版本就行, 如v18.12.0
 38. 公有网站访问私有接口跨域问题：<https://www.cnblogs.com/daysme/p/15493523.html>
-
+39. 不要依赖etag，有些手机会强行缓存静态资源，最合理的做法是静态资源url后加上时间戳
