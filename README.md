@@ -43,3 +43,4 @@
 38. 公有网站访问私有接口跨域问题：<https://www.cnblogs.com/daysme/p/15493523.html>
 39. 不要依赖etag，有些手机会强行缓存静态资源，最合理的做法是静态资源url后加上时间戳
 40. `new Stream.Tranform({ objectMode: true, transform })` 其中 transform 的参数chunk, ts提示是any，但实际上是 `import type File from 'vinyl';`的File 类型
+41. npm和node版本对应列表: <https://nodejs.org/zh-cn/download/releases>
