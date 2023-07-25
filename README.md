@@ -46,3 +46,4 @@
 41. npm和node版本对应列表: <https://nodejs.org/zh-cn/download/releases>
 42. node.js中, spawn的timeout不生效, 或者说有很大的兼容问题(只结束了进程, 但没法区分是不是timeout导致的). 只能手动setTimeout处理. 相关issue: <https://github.com/nodejs/node/issues/43704>
 43. 使用tsc打包后d.ts文件丢失, 原因: .d.ts文件被视为编译器进行类型检查的不可修改的输入。它们不用于任何输出生成，这也意味着它们不会被复制到build。您可以阅读更多有关维护者立场的[here](https://github.com/Microsoft/TypeScript/issues/5112)
+44. 有些用户设备上出现莫名其妙加空格的情况：谷歌浏览器自带的翻译会多加空格，还有浏览器插件。所以排查问题需要在浏览器纯净模式下排查，才能规避各种用户的问题
