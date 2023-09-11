@@ -48,3 +48,4 @@
 43. 使用tsc打包后d.ts文件丢失, 原因: .d.ts文件被视为编译器进行类型检查的不可修改的输入。它们不用于任何输出生成，这也意味着它们不会被复制到build。您可以阅读更多有关维护者立场的[here](https://github.com/Microsoft/TypeScript/issues/5112)
 44. 有些用户设备上出现莫名其妙加空格的情况：谷歌浏览器自带的翻译会多加空格，还有浏览器插件。所以排查问题需要在浏览器纯净模式下排查，才能规避各种用户的问题
 45. chrome的input样式(自动选择后的背景色)无法清除: `input:-webkit-autofill, input:-webkit-autofill:focus { transition: background-color 0s 600000s, color 0s 600000s; }` 链接来源: <https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied>
+46. 各大主流浏览器，cookie的配置samesite默认值都不一样，比如chrome是None，safari是Lax
