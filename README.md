@@ -49,4 +49,4 @@
 44. 有些用户设备上出现莫名其妙加空格的情况：谷歌浏览器自带的翻译会多加空格，还有浏览器插件。所以排查问题需要在浏览器纯净模式下排查，才能规避各种用户的问题
 45. chrome的input样式(自动选择后的背景色)无法清除: `input:-webkit-autofill, input:-webkit-autofill:focus { transition: background-color 0s 600000s, color 0s 600000s; }` 链接来源: <https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied>
 46. 各大主流浏览器，cookie的配置samesite默认值都不一样，比如chrome是None，safari是Lax
-47. safari下iframe页面localstorage拿不到自己域的数据的问题：<https://stackoverflow.com/questions/63922558/safari-localstorage-not-shared-between-iframes-hosted-on-same-domain>
+47. safari下iframe页面拿不到localstorage数据的问题：1. safari中, 主页面与iframe页面不在同一个域下，会导致iframe页面也拿不到自己域下的localStorage; 2. <https://stackoverflow.com/questions/63922558/safari-localstorage-not-shared-between-iframes-hosted-on-same-domain>
