@@ -54,13 +54,14 @@
 49. safari 13.1.3版本, 使用`input[file]`, 点击时完全不会弹起mac系统的文件选择器，而且还会造成页面短暂的卡死
 50. safari有时`input[file]`不生效的bug: 需要input渲染到页面上后再click(); 不能display: none; 不能onchange，只能addEventListener。
 ```typescript
+import { getUA } from 'peeler-js';
 /** 自动弹出浏览器默认的上传文件弹窗, 获取文件 */
 export const getFiles = ({
     accept,
     multiple = false,
     oncancel,
 }: {
-    accept: FileType[];
+    accept: string[];
     multiple?: boolean;
     oncancel?: () => void;
 }) =>
