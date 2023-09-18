@@ -51,3 +51,45 @@
 46. 各大主流浏览器，cookie的配置samesite默认值都不一样，比如chrome是None，safari是Lax
 47. safari下iframe页面拿不到localstorage数据的问题：1. safari中, 主页面与iframe页面不在同一个域下，会导致iframe页面也拿不到自己域下的localStorage; 2. <https://stackoverflow.com/questions/63922558/safari-localstorage-not-shared-between-iframes-hosted-on-same-domain>
 48. chrome用a标签download属性的方式下载图片时，如果图片url是网络地址，就会自动打开图片，不能下载。解决方案：将图片转成base64的链接形式，再下载
+49. safari 13.1.3版本, 使用`input[file]`, 点击时完全不会弹起mac系统的文件选择器，而且还会造成页面短暂的卡死
+50. safari有时`input[file]`不生效的bug: 需要input渲染到页面上后再click(); 不能display: none; 不能onchange，只能addEventListener。
+```typescript
+/** 自动弹出浏览器默认的上传文件弹窗, 获取文件 */
+export const getFiles = ({
+    accept,
+    multiple = false,
+    oncancel,
+}: {
+    accept: FileType[];
+    multiple?: boolean;
+    oncancel?: () => void;
+}) =>
+    new Promise<File[]>((resolve) => {
+        // 兼容safari诡异的bug: 需要input渲染到页面上后再click(); 不能display: none; 不能onchange，只能addEventListener
+        const { isSafari } = getUA(window.navigator.userAgent);
+        const input = document.createElement('input');
+        if (isSafari) {
+            document.body.appendChild(input);
+        }
+        input.type = 'file';
+        input.accept = accept.join(',');
+        input.multiple = multiple;
+        input.addEventListener('change', (e: Event) => {
+            const target = e.currentTarget as HTMLInputElement;
+            const files = Array.from(target?.files ?? []);
+            resolve(files);
+            if (isSafari) {
+                document.body.removeChild(input);
+            }
+        });
+        if (isSafari) {
+            setTimeout(() => {
+                input.click();
+            }, 300);
+        } else {
+            input.click();
+        }
+        // eslint-disable-next-line prefer-promise-reject-errors
+        input.oncancel = () => oncancel?.();
+    });
+```
