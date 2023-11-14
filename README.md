@@ -94,3 +94,5 @@ export const getFiles = ({
         input.oncancel = () => oncancel?.();
     });
 ```
+51. typescript的缺陷1: 访问数组索引的时候, 类型不准确, 如 `const arr = [1, 2, 3]; const v = arr[100]; // number`, 需要手动改成 `const v = arr[100] as number | undefined; // number`
+52. typescript的缺陷2: 用字符串的方式访问对象属性的时候, 直接强行变成动态的, 不能准确校验, 如 `const obj = { p1: 'v1', p2: 'v2' }; const v = obj[true ? 'p1' : 'p3']; // any`, 并没有报错, 需要尽量避免这种写法, 改成: `const v = true ? obj.p1 : obj.p3; // 报错`
