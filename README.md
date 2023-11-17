@@ -96,3 +96,4 @@ export const getFiles = ({
 ```
 51. typescript的缺陷1: 访问数组索引的时候, 类型不准确, 如 `const arr = [1, 2, 3]; const v = arr[100]; // number`, 需要手动改成 `const v = arr[100] as number | undefined; // number`
 52. typescript的缺陷2: 用字符串的方式访问对象属性的时候, 直接强行变成动态的, 不能准确校验, 如 `const obj = { p1: 'v1', p2: 'v2' }; const v = obj[true ? 'p1' : 'p3']; // any`, 并没有报错, 需要尽量避免这种写法, 改成: `const v = true ? obj.p1 : obj.p3; // 报错`
+53. 在Mac触控板上，即使手指没有移动，也有可能触发mousemove事件. 这可能是由于触控板的精确度和敏感度造成的。当手指接触触控板时，即使微微晃动或触摸压力发生微小变化，也会被视为移动。
