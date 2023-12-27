@@ -50,7 +50,42 @@
 45. chrome的input样式(自动选择后的背景色)无法清除: `input:-webkit-autofill, input:-webkit-autofill:focus { transition: background-color 0s 600000s, color 0s 600000s; }` 链接来源: <https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied>
 46. 各大主流浏览器，cookie的配置samesite默认值都不一样，比如chrome是None，safari是Lax
 47. safari下iframe页面拿不到localstorage数据的问题：1. safari中, 主页面与iframe页面不在同一个域下，会导致iframe页面也拿不到自己域下的localStorage; 2. <https://stackoverflow.com/questions/63922558/safari-localstorage-not-shared-between-iframes-hosted-on-same-domain>
-48. chrome用a标签download属性的方式下载图片时，如果图片url是网络地址，就会自动打开图片，不能下载。解决方案：将图片转成base64的链接形式，再下载
+48. 资源下载功能的通用实现思路:
+```typescript
+/**
+ * 避免使用浏览器自带的下载功能:
+ * 1. 部分浏览器如果遇到能识别的资源, 会打开新的窗口进行预览
+ * 2. 不同源的资源, 直接使用a标签download, 无法修改资源名称
+ */
+export const download = async ({
+    url,
+    filename,
+}: {
+    url: string;
+    filename: string;
+}) => {
+    const { close: closePageLoading } = PageLoading.show({
+        text: '资源下载中',
+    });
+    const x = new window.XMLHttpRequest();
+    x.open('GET', url, true);
+    x.responseType = 'blob';
+    x.onload = () => {
+        const url = window.URL.createObjectURL(x.response);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        closePageLoading();
+    };
+    x.onerror = () => {
+        message.error('资源下载失败');
+        closePageLoading();
+    };
+    x.send();
+};
+
+```
 49. safari 13.1.3版本, 使用`input[type="file"]`, 点击时完全不会弹起mac系统的文件选择器，而且还会造成页面短暂的卡死
 50. safari有时`input[type="file"]`不生效的bug: 需要input渲染到页面上后再click(); 不能display: none; 不能onchange，只能addEventListener。
 ```typescript
