@@ -135,3 +135,9 @@ export const getFiles = ({
 54. window下的firefox浏览器，如果html设置了lang=zh-CN，iconfont高度会和宽度不一致，导致偏移。改成lang=en就正常了。
 55. domtoimage等根据html生成图片的库, 目标dom的祖先不能有`display: none`， 因为会影响getCountedStyle的结果, 比如transform为none, 直接导致图片内容的错位
 56. safari xlsx导入功能, input的accept不能设置, 因为safari可能识别不出来部分xlsx文件的类型，而且导入后的file.type会为空字符串
+57. console.log使用时, 如果有对象数据, 最好用深拷贝拷贝一份再打印 (目的是指向另一个不会被修改空间), 不然console.log后续的代码如果修改了这个对象, chrome的控制台打印出来的就是最终修改完的结果. 比如
+```typescript
+const o = { a: 1 };
+console.log('===o', o); // 有可能打印出2
+o.a = 2;
+```
