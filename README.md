@@ -143,3 +143,16 @@ o.a = 2;
 ```
 58. `querySelector` 该方法使用 CSS3 选择器来查询 DOM，并且 CSS3 不支持以数字开头的 ID 选择器：
 在 CSS 中，标识符（包括选择器中的元素名称、类和 ID）只能包含字符 [a-zA-Z0-9] 和 ISO 10646 字符 U+00A0 及更高版本，加上连字符 (-) 和下划线 ( _); 它们不能以数字、两个连字符或连字符后跟数字开头。所以`querySelector('#22')`不生效, 得用 `querySelector('[id="22"]')` 或 `getElementById('22')`
+59. React中不能创建comment节点, 但可以用hacker的方式实现:
+```typescript
+const ReactComment = () => (
+    <div
+        ref={el => {
+            if (!el) return;
+            if (!el.isConnected) return;
+            el.outerHTML = '<!-- -->';
+        }}
+        style={{ display: 'none' }}
+    />
+);
+```
