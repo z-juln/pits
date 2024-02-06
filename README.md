@@ -157,3 +157,4 @@ const ReactComment = () => (
 );
 ```
 60. chrome的devtools面板, 行内布局的元素高度的展示数据是不可靠的
+61. lodash的cloneDeep有bug, 有人提issue也不改, 慎用: <https://github.com/lodash/lodash/issues/5364>
