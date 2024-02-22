@@ -160,3 +160,10 @@ const ReactComment = () => (
 61. lodash的cloneDeep有bug, 有人提issue也不改, 慎用: <https://github.com/lodash/lodash/issues/5364>
 62. 少用export *, 因为导入时容易路径不写全, 会加剧[循环导入](https://blog.csdn.net/u010059669/article/details/122876351)的问题, 导致拿到的值为undefined. 检测循环导入: [circular-dependency-plugin](https://www.npmjs.com/package/circular-dependency-plugin)
 63. webpack中`import`和`module.exports = xxx`不能混合使用
+64. 注意：canvas有像素限制。如下：
+```
+在chrome 和 Edge中，
+canvas矩形的单边最大长度不能超过 65535，并且总像素面积不能超过 268421360 平方像素，也就是说如果矩形的长边是 65535 ，那么短边不能超过4096，如果超出这些限制，则不能正常显示。
+在FireFox中,
+一般情况下矩形的长边不超过 32767 ，总像素面积不超过125w，但是也有例外：比如宽高设置为 width="3890" height="32133" 虽然满足条件但是不能显示，具体原因不明。
+```
