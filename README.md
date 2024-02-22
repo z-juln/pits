@@ -159,3 +159,4 @@ const ReactComment = () => (
 60. chrome的devtools面板, 行内布局的元素高度的展示数据是不可靠的
 61. lodash的cloneDeep有bug, 有人提issue也不改, 慎用: <https://github.com/lodash/lodash/issues/5364>
 62. 少用export *, 因为导入时容易路径不写全, 会加剧[循环导入](https://blog.csdn.net/u010059669/article/details/122876351)的问题, 导致拿到的值为undefined. 检测循环导入: [circular-dependency-plugin](https://www.npmjs.com/package/circular-dependency-plugin)
+63. webpack中`import`和`module.exports = xxx`不能混合使用
