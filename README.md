@@ -168,3 +168,12 @@ canvas矩形的单边最大长度不能超过 65535，并且总像素面积不�
 一般情况下矩形的长边不超过 32767 ，总像素面积不超过125w，但是也有例外：比如宽高设置为 width="3890" height="32133" 虽然满足条件但是不能显示，具体原因不明。
 ```
 65. dom旋转之后, `getBoundingClientRect`拿的不是宽高值
+66. ```javascript
+      /** 判断col元素是否是占位元素. 部分浏览器 (比如safari), col元素是不占宽高的 */
+      export const COL_ELEMENT_IS_BLOCK = (() => {
+          const tableEl = document.createElement('table');
+          tableEl.innerHTML = '<colgroup><col style="width: 100px;"/></colgroup>';
+          document.body.appendChild(tableEl);
+          return tableEl.querySelector('col')!.clientWidth > 0;
+      })();
+    ```
