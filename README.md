@@ -167,6 +167,39 @@ canvas矩形的单边最大长度不能超过 65535，并且总像素面积不�
 在FireFox中,
 一般情况下矩形的长边不超过 32767 ，总像素面积不超过125w，但是也有例外：比如宽高设置为 width="3890" height="32133" 虽然满足条件但是不能显示，具体原因不明。
 ```
+```javascript
+/** 获取canvas极限值信息的页面: https://titan-h5.meitu.com/xiuxiu/meta-wasmm/version1.0/test.html (源码: https://github.com/z-juln/pits/blob/master/getCanvasLimitInfo.html) */
+/** @typedef {{ uaRegexp: RegExp; maxW: number; maxSize: number; }} LimitInfo */
+/** 搜狗浏览器13000*13000页面会崩溃, 保险起见取10000 * 10000, 其他没测过的浏览器暂时也用这个值 */
+/** @type {Omit<LimitInfo, 'uaRegexp'>} */
+const commonLimit = { maxW: 10000, maxSize: 10000 * 10000 };
+/** @type {LimitInfo[]} */
+const limitList = [
+    // mac chrome
+    { uaRegexp: /webkit\W.*(chrome|chromium)\W/i, maxW: 65535, maxSize: 268435456 },
+    // mac edge (没测过, 用chrome的值)
+    { uaRegexp: /\bEdge\b/i, maxW: 65535, maxSize: 268435456 },
+    // mac safari
+    { uaRegexp: /webkit\W(?!.*chrome).*safari\W/i, maxW: 1000000, maxSize: 268435456 },
+    // mac firefox
+    { uaRegexp: /mozilla.*\Wfirefox\W/i, maxW: 32767, maxSize: 536756224 },
+    // mac opera (没测过)
+    { uaRegexp: /opera.*\Wpresto\W|OPR/i, ...commonLimit },
+    // mac 360 (没测过)
+    { uaRegexp: /360/i, ...commonLimit },
+    // mac uc (没测过)
+    { uaRegexp: /ucbrowser/i, ...commonLimit },
+    // mac baidu (没测过)
+    { uaRegexp: /bidubrowser/i, ...commonLimit },
+    // mac sougou (没测过)
+    { uaRegexp: /metasr/i, ...commonLimit },
+    // mac liebao (没测过)
+    { uaRegexp: /lbbrowser/i, ...commonLimit },
+    // mac qq (没测过)
+    { uaRegexp: /qq/i, ...commonLimit },
+];
+const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent)) ?? commonLimit;
+```
 65. dom旋转之后, `getBoundingClientRect`拿的不是宽高值
 66. ```javascript
     /** 判断col元素是否是占位元素. 部分浏览器 (比如safari), col元素是不占宽高的 */
