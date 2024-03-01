@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>检测当前浏览器canvas最大限制</title>
+</head>
+<body>
+  <div id="log"></div>
+
+  <script>
+    const logEl = document.querySelector('#log');
+    const log = (text) => {
+      const pEl = document.createElement('p');
+      pEl.innerText = text;
+      logEl.appendChild(pEl);
+      window.scrollTo(0, document.body.scrollHeight);
+    };
+
+    const getCanvasLimitInfo = async (log = () => {}) => {
+      const sleep = (t = 300) => new Promise(resolve => setTimeout(resolve, t));
+      const checkIsAvailableCanvasSize = async ({ w, h }) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, w, h);
+        document.body.appendChild(canvas);
+        const isNoAvailable = canvas.toDataURL() === 'data:,';
+        document.body.removeChild(canvas);
+        return !isNoAvailable;
+      };
+      const getMaxCanvasWidth = async () => {
+        const _getMaxCanvasWidth = async ({ baseW, delta }) => {
+          let w = baseW;
+          while (1) {
+            w += delta;
+            const isAvailable = await checkIsAvailableCanvasSize({ w, h: 1 });
+            log(`===检测边长值 ${w}px: ${isAvailable ? '能用' : '不能用'}`);
+            log('===检测中...');
+            await sleep();
+            if (!isAvailable) return w - delta;
+          }
+        };
+        let maxW = 1000;
+        for (const delta of [10000, 1000, 100, 10, 1]) {
+          maxW = await _getMaxCanvasWidth({ baseW: maxW, delta });
+        }
+        return maxW;
+      };
+      const getMaxCanvasSize = async () => {
+        const _getMaxCanvasW = async ({ baseW, deltaW }) => {
+          let w = baseW;
+          while (1) {
+            w += deltaW;
+            const isAvailable = await checkIsAvailableCanvasSize({ w, h: w });
+            await sleep();
+            log(`===检测像素值 ${w}px * ${w}px: ${isAvailable ? '能用' : '不能用'}`);
+            log('===检测中...');
+            if (!isAvailable) return w - deltaW;
+          }
+        };
+        let maxW = 1000;
+        for (const deltaW of [10000, 1000, 100, 10, 1]) {
+          maxW = await _getMaxCanvasW({ baseW: maxW, deltaW });
+        }
+        return maxW ** 2;
+      };
+
+      const maxCanvasWidth = await getMaxCanvasWidth();
+      const maxCanvasSize = await getMaxCanvasSize();
+      log(`===`);
+      log(`===`);
+      log(`===`);
+      log(`===`);
+      log(`===最大边长值: ${maxCanvasWidth}px`);
+      log(`===最大像素值: ${maxCanvasSize}`);
+      log(`===检测完毕`);
+      log(`===检测完毕`);
+      log(`===检测完毕`);
+      log(`===检测完毕`);
+
+      return {
+        maxCanvasWidth,
+        maxCanvasSize,
+      };
+    };
+
+    window.onload = () => {
+      try {
+        getCanvasLimitInfo(log);
+      } catch (error) {
+        log(`报错了: ${error}`);
+      }
+    };
+  </script>
+</body>
+</html>
