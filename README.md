@@ -177,7 +177,7 @@ const commonLimit = { maxW: 10000, maxSize: 10000 * 10000 };
 const limitList = [
     // mac chrome
     { uaRegexp: /webkit\W.*(chrome|chromium)\W/i, maxW: 65535, maxSize: 268435456 },
-    // mac edge (没测过, 用chrome的值)
+    // mac edge
     { uaRegexp: /\bEdge\b/i, maxW: 65535, maxSize: 268435456 },
     // mac safari
     { uaRegexp: /webkit\W(?!.*chrome).*safari\W/i, maxW: 1000000, maxSize: 268435456 },
@@ -196,7 +196,7 @@ const limitList = [
     // mac liebao (没测过)
     { uaRegexp: /lbbrowser/i, ...commonLimit },
     // mac qq (没测过)
-    { uaRegexp: /qq/i, ...commonLimit },
+    { uaRegexp: /qq/i, maxW: 1000000, maxSize: 268435456 },
 ];
 const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent)) ?? commonLimit;
 ```
