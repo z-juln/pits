@@ -175,27 +175,27 @@ canvas矩形的单边最大长度不能超过 65535，并且总像素面积不�
 const commonLimit = { maxW: 10000, maxSize: 10000 * 10000 };
 /** @type {LimitInfo[]} */
 const limitList = [
-    // mac chrome
+    // chrome
     { uaRegexp: /webkit\W.*(chrome|chromium)\W/i, maxW: 65535, maxSize: 268435456 },
-    // mac edge
+    // edge
     { uaRegexp: /\bEdge\b/i, maxW: 65535, maxSize: 268435456 },
-    // mac safari
+    // safari
     { uaRegexp: /webkit\W(?!.*chrome).*safari\W/i, maxW: 1000000, maxSize: 268435456 },
-    // mac firefox
+    // firefox
     { uaRegexp: /mozilla.*\Wfirefox\W/i, maxW: 32767, maxSize: 536756224 },
-    // mac opera (没测过)
+    // opera (没测过)
     { uaRegexp: /opera.*\Wpresto\W|OPR/i, ...commonLimit },
-    // mac 360
+    // 360
     { uaRegexp: /360/i, ...commonLimit },
-    // mac uc (没测过)
+    // uc (没测过)
     { uaRegexp: /ucbrowser/i, ...commonLimit },
-    // mac baidu (没测过)
+    // baidu (没测过)
     { uaRegexp: /bidubrowser/i, ...commonLimit },
-    // mac sougou (13000 * 13000会导致页面崩溃)
+    // sougou (13000 * 13000会导致页面崩溃)
     { uaRegexp: /metasr/i, ...commonLimit },
-    // mac liebao (没测过)
+    // liebao (没测过)
     { uaRegexp: /lbbrowser/i, ...commonLimit },
-    // mac qq (没测过)
+    // qq (没测过)
     { uaRegexp: /qq/i, maxW: 1000000, maxSize: 268435456 },
 ];
 const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent)) ?? commonLimit;
