@@ -191,8 +191,8 @@ const limitList = [
     { uaRegexp: /ucbrowser/i, ...commonLimit },
     // mac baidu (没测过)
     { uaRegexp: /bidubrowser/i, ...commonLimit },
-    // mac sougou (没测过)
-    { uaRegexp: /metasr/i, ...commonLimit },
+    // mac sougou (13000 * 13000会导致页面崩溃)
+    { uaRegexp: /metasr/i, maxW: 65535, maxSize: 12000 * 12000 },
     // mac liebao (没测过)
     { uaRegexp: /lbbrowser/i, ...commonLimit },
     // mac qq (没测过)
