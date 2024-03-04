@@ -185,8 +185,8 @@ const limitList = [
     { uaRegexp: /mozilla.*\Wfirefox\W/i, maxW: 32767, maxSize: 536756224 },
     // mac opera (没测过)
     { uaRegexp: /opera.*\Wpresto\W|OPR/i, ...commonLimit },
-    // mac 360 (没测过)
-    { uaRegexp: /360/i, ...commonLimit },
+    // mac 360
+    { uaRegexp: /360/i, maxW: 65535, maxSize: 12000 * 12000 },
     // mac uc (没测过)
     { uaRegexp: /ucbrowser/i, ...commonLimit },
     // mac baidu (没测过)
