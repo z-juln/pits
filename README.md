@@ -186,13 +186,13 @@ const limitList = [
     // mac opera (没测过)
     { uaRegexp: /opera.*\Wpresto\W|OPR/i, ...commonLimit },
     // mac 360
-    { uaRegexp: /360/i, maxW: 65535, maxSize: 12000 * 12000 },
+    { uaRegexp: /360/i, ...commonLimit },
     // mac uc (没测过)
     { uaRegexp: /ucbrowser/i, ...commonLimit },
     // mac baidu (没测过)
     { uaRegexp: /bidubrowser/i, ...commonLimit },
     // mac sougou (13000 * 13000会导致页面崩溃)
-    { uaRegexp: /metasr/i, maxW: 65535, maxSize: 12000 * 12000 },
+    { uaRegexp: /metasr/i, ...commonLimit },
     // mac liebao (没测过)
     { uaRegexp: /lbbrowser/i, ...commonLimit },
     // mac qq (没测过)
