@@ -213,3 +213,4 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
     })();
     ```
 67. `pptxgenjs` 这个库，如果图片大于7000px * 7000px, 转换后的ppt不会展示该图片，大概率是库的bug
+68. safari中，z-index不会跟随父级组件的z-index走
