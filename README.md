@@ -217,3 +217,4 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
 69. `display: none;` 会导致伪元素不存在/销毁
 70. 注释掉的代码会造成卡顿，不理解...<br/><img width="944" alt="" src="https://github.com/z-juln/pits/assets/66806955/449b3919-e7b6-40b6-8dee-77ef827a0fb2">
 71. chrome上, `const fn = () => window.location.reload();` 与 `const fn = window.location.reload;` 结果不同, 在一些场景下调用 `fn()`, 后者是不生效的, 原生的函数好像都不支持这么使用, 都会有一些问题, 到底为什么不知道...
+72. 现在大部分浏览器伪元素都支持小于12px的fontSize的展示，但是还有有兼容问题，比如搜狗浏览器和低版本edge
