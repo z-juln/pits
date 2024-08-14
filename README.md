@@ -218,3 +218,18 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
 70. 注释掉的代码会造成卡顿，不理解...<br/><img width="944" alt="" src="https://github.com/z-juln/pits/assets/66806955/449b3919-e7b6-40b6-8dee-77ef827a0fb2">
 71. chrome上, `const fn = () => window.location.reload();` 与 `const fn = window.location.reload;` 结果不同, 在一些场景下调用 `fn()`, 后者是不生效的, 原生的函数好像都不支持这么使用, 都会有一些问题, 到底为什么不知道...
 72. 现在大部分浏览器伪元素都支持小于12px的fontSize的展示，但是还有有兼容问题，比如搜狗浏览器和低版本edge
+73. input[type='file'] 连续上传同一个文件不触发 onChange 事件 或 Upload 组件只调用了一次 onChange 函数: <https://juejin.cn/post/6971370499150446600>
+```typescript
+<input
+  type="file"
+  accept=".docx"
+  onClick={(e) => {
+    // 这里
+    (e.target as HTMLInputElement).value = "";
+  }}
+  onChange={(e) => {
+    console.log(`e`, e.target.files);
+  }}
+/>
+```
+
