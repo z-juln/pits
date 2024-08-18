@@ -232,4 +232,5 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
   }}
 />
 ```
+74. vscode的ts类型提示, 关于返回值为never的函数的问题: node_modules里的函数才会对写在函数调用后边的代码提示 '代码不会被执行', 但是如果是自己写的代码(不在node_modules)中, 那就不会提示
 
