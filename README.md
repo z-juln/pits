@@ -237,4 +237,5 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
 75. 滚动区域统一使用`react-custom-scroll`, 否则会出现windows、mac样式不兼容的问题（windows会给容器加padding，mac则不会）
 76. mac进入页面后，突然插入鼠标，滚动条和滚动容器样式都会乱掉，所以进入页面后再插入鼠标导致的样式问题，没法修改
 77. mac插入鼠标和没插入鼠标的滚动条和滚动容器，样式会有些许差别
+78. safari的`navigator.clipboard.writeText`不能在promise的上下文中被调用, 解决方法setTimeout
 
