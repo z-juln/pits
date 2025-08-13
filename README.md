@@ -240,4 +240,4 @@ const limitInfo = limitList.find(l => l.uaRegexp.test(window.navigator.userAgent
 78. safari复制链接失效的原因: 1. safari的`navigator.clipboard.writeText`不能在promise的上下文中被调用, 解决方法setTimeout; 2. safari不支持跟用户交互后一段时间后去写入剪切板 (比如较久的网络请求后再去写入剪切板), 这是safari的安全策略, 只能从交互体验上去修复
 79. 部分浏览器，逻辑上不存在window.openner却window.openner也拿得到值
 80. safari页面跳转/关闭前，还未响应回来的接口请求，会被safari中断并抛出异常(其他浏览器都是取消且不会抛出异常), 如果catch代码块内部有写入localstorage或者cookie等的操作，就可以会引起功能性业务bug
-
+81. safari14, 要求 sx + sWidth 和 sy + sHeight 不能大于等于源图像的宽高，否则 drawImage() 函数不会绘制任何图像
